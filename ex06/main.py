@@ -22,14 +22,7 @@ def frontal_function(line: str) -> float:
     """
     
     try:
-
-    #    Définition des variables
-
-        parameter_list = line.split(" ")
-        m = parameter_list[0]
-        n = parameter_list[1]
-        liste_word = parameter_list[2:-1]
-        chemin = parameter_list[len(parameter_list)-1]
+        pass
 
     
     except Exception as e:
@@ -46,8 +39,18 @@ def main(line: str):
         Returns:
             None: Affiche le résultat ou l'erreur.
     """
+    
+    #    Définition des variables
+
+    parameter_list = line.split(" ")
+    m = parameter_list[0]
+    n = parameter_list[1]
+    liste_word = parameter_list[2:-1]
+    chemin = parameter_list[len(parameter_list)-1]
+    
     try:
-        result = frontal_function(line)
+        
+        result = frontal_function()
         print(result)
     except BadInputException:
         print("BAD INPUT")
