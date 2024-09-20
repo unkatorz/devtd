@@ -1,0 +1,1 @@
+2 5 price quantity ./ex06/file.csv

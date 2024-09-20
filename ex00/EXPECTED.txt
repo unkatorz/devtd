@@ -1,0 +1,7 @@
+Bonjour Seb
+BAD INPUT
+BAD INPUT
+BAD INPUT
+Hello Alice
+Hello Bob
+BAD INPUT
