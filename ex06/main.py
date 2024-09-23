@@ -4,13 +4,14 @@
 import csv
 import os
 from sys import argv
+import re 
 
 class BadInputException(ValueError):
     """Raised when a given input does not fulfill the specification"""
     pass
 
 
-def frontal_function(line: str) -> float:
+def frontal_function(m: int, n: int,liste, chemin: str) -> float:
     """
     Fonction principale pour traiter la ligne d'entrée.
     
@@ -22,7 +23,22 @@ def frontal_function(line: str) -> float:
     """
     
     try:
-        pass
+        total_sum = 0
+        column = []
+        for element in liste:
+            column.append(element)
+            print(element)
+        with open(chemin, mode='r') as file:
+            reader = csv.DictReader(file)
+            for i, row in enumerate(reader, start=1):
+                if m <= i <= n:
+                    price = float(row['price'])
+                    quantity = float(row['quantity'])
+                    
+                    total_sum += price * quantity
+                
+        return total_sum
+            
 
     
     except Exception as e:
@@ -40,17 +56,28 @@ def main(line: str):
             None: Affiche le résultat ou l'erreur.
     """
     
-    #    Définition des variables
+    #    Déclaration des variables
 
     parameter_list = line.split(" ")
-    m = parameter_list[0]
-    n = parameter_list[1]
+    m = int(parameter_list[0])+1
+    n = int(parameter_list[1])+1
     liste_word = parameter_list[2:-1]
     chemin = parameter_list[len(parameter_list)-1]
-    
+
+    if m > n : raise BadInputException()
+
+    for element in liste_word:
+        if not re.match(r"^[a-zA-Z]+$", element): raise BadInputException()
+
+    if chemin[-4:] != ".csv": raise BadInputException()
+
+    with open(chemin, "r") as file:
+        content = csv.reader(file, delimiter=',')
+        for row in content:
+            if not len(row) > 1: raise BadInputException()
+
     try:
-        
-        result = frontal_function()
+        result = frontal_function(m,n,liste_word,chemin)
         print(result)
     except BadInputException:
         print("BAD INPUT")
