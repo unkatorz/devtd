@@ -9,7 +9,7 @@ class BadInputException(ValueError):
     pass
 
 
-def frontal_function(liste_mots) :
+def frequence_word(liste_mots) :
     """
     Rename and document this function accordingly.
     
@@ -52,7 +52,7 @@ def main(line: str):
     ### Frontal function call and exceptions management
     
     ###
-    result = frontal_function(phrase)
+    result = frequence_word(phrase)
     print(result)
 
 

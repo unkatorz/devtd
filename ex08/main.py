@@ -9,12 +9,14 @@ class BadInputException(ValueError):
     pass
 
 
-def frontal_function(liste, k: int) :
+def concaten(liste, k: int) :
     """
     Rename and document this function accordingly.
     
         Parameters:
-            
+            liste : array ; 
+
+            k : int
         
         Raises:
             
@@ -52,17 +54,17 @@ def main(line: str):
     #print(len(tableau))
     for i in range(0,len(tableau)-1,2):
         #print(tableau[i], tableau[i+1])
-        #if tableau[i] in tableau: raise BadInputException()
+        if int(tableau[i]) in tableau: raise BadInputException()
 
-        #if not tableau[i] > 0: raise BadInputException()
+        if not int(tableau[i]) > 0: raise BadInputException()
         
-        #if not re.match(r"^[a-zA-Z]+$", tableau[i+1]): raise BadInputException()
+        if not re.match(r"^[a-zA-Z]+$", tableau[i+1]): raise BadInputException()
         
         couple[tableau[i]] = tableau[i+1]
 
     #print(liste_couple)
     ### Frontal function call and exceptions management
-    result = frontal_function(couple,k)
+    result = concaten(couple,k)
     print(result)
     ###
 

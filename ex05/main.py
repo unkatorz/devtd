@@ -34,11 +34,11 @@ def find_occurrences(a: str, b: str):
     if not (is_valid_dna_sequence(a) and is_valid_dna_sequence(b)):
         raise BadInputException("BAD INPUT")
     
-    # Convertir les séquences en majuscules
+
     a = a.upper()
     b = b.upper()
     
-    # Trouver toutes les positions de A dans B
+
     positions = []
     start = 0
     while True:
@@ -46,7 +46,7 @@ def find_occurrences(a: str, b: str):
         if start == -1:
             break
         positions.append(start)
-        start += len(a)  # Continue à chercher après la position trouvée
+        start += len(a)
     
     if positions:
         return [len(positions)] + positions

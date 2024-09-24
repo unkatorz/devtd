@@ -20,7 +20,7 @@ def sort_name(liste):
     Returns:
     str: Le premier mot selon l'ordre alphabétique ou d'apparition en cas d'égalité.
     """
-    # La liste doit être triée en respectant l'ordre alphabétique
+
     test_liste = sorted(liste)
     return test_liste[0]
 
@@ -34,7 +34,7 @@ def main(line: str):
     Raises:
     BadInputException: Si l'entrée ne contient pas au moins deux mots ou contient des caractères non alphabétiques.
     """
-    # Séparation des mots et validation de l'entrée
+
     new_line = line.split()
     if len(new_line) < 2:
         raise BadInputException("Ligne avec moins de deux mots.")
@@ -43,7 +43,6 @@ def main(line: str):
         if not re.match(r'^[a-zA-Z]+$', val):
             raise BadInputException("Caractère non valide détecté.")
 
-    # Appel de la fonction de tri et affichage du résultat
     try:
         result = sort_name(new_line)
         print(result)
@@ -51,11 +50,11 @@ def main(line: str):
         print(f"Erreur: {e}")
 
 if __name__ == "__main__":
-    # Lecture du fichier d'entrée
+
     with open(argv[1]) as inputFile:
         for line in inputFile:
             try:
-                main(line.strip())  # Utilisation de strip() pour enlever les espaces en trop
+                main(line.strip())
             except BadInputException:
                 print("BAD INPUT")
 sort_name("THIERRY GAILLARD")

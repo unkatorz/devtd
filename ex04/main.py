@@ -38,11 +38,11 @@ def main(line: str):
         Returns:
             None: Affiche la séquence ARN ou "NOT A DNA SEQUENCE" en cas d'erreur.
     """
-    # Nettoyer la ligne d'entrée
+
     dna_sequence = line.strip()
     
     try:
-        # Appeler la fonction principale pour la conversion
+
         result = frontal_function(dna_sequence)
         print(result)
     except BadInputException as e:

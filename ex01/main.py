@@ -23,13 +23,13 @@ def convert_to_compact_notation(value: str):
     """
     value = value.strip()
 
-    # Vérifier si c'est un nombre entier ou un flottant
+
     if re.match(r'^-?\d+(\.\d+)?$', value):
         try:
-            # Tenter de convertir en entier si possible, sinon en flottant
+
             if '.' in value:
                 number = float(value)
-                # Conversion en notation scientifique si cela réduit le nombre de caractères
+
                 sci_notation = "{:e}".format(number)
                 if len(sci_notation) < len(value):
                     return sci_notation
@@ -61,7 +61,7 @@ def main(line: str):
 
 if __name__ == "__main__":
     
-    # Lecture du fichier d'entrée et traitement ligne par ligne
+
     with open(argv[1]) as inputFile:
         for line in inputFile:
             main(line)

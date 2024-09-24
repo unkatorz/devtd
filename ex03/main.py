@@ -44,24 +44,25 @@ def main(line: str):
             None: Affiche le résultat arrondi ou "ARITHMETIC ERROR" en cas d'erreur.
     """
     try:
-        # Nettoyer et diviser la ligne d'entrée
+
         parts = line.strip().split()
         if len(parts) != 2:
             raise BadInputException("Input should contain exactly two float values.")
         
-        # Convertir les parties en floats
+
         a = float(parts[0])
         b = float(parts[1])
         
-        # Calculer le résultat de l'expression
+
         result = compute_expression(a, b)
         print(result)
     except (ValueError, BadInputException):
         print("ARITHMETIC ERROR")
+        exit(1)
 
 if __name__ == "__main__":
     
-    # Lecture du fichier d'entrée et traitement ligne par ligne
+
     with open(argv[1]) as inputFile:
         for line in inputFile:
             main(line)

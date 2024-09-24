@@ -9,17 +9,21 @@ class BadInputException(ValueError):
     pass
 
 
-def frontal_function(chaine:str, chemin:str) :
+def search_word(chaine:str, chemin:str) :
     """
     Rename and document this function accordingly.
     
         Parameters:
+            chaine : string ; La chaîne recherché
             
+            chemin : string ; Le chemin du fichier voulu
         
         Raises:
             
         
         Returns:
+
+            resultats : string ; Tous les mots correspondants à la chaine recherché.
             
     """
     
@@ -58,7 +62,7 @@ def main(line: str):
     ### Frontal function call and exceptions management
     try:
 
-        result = frontal_function(chaine, chemin)
+        result = search_word(chaine, chemin)
         print(result)
     except:
         print("NOK")

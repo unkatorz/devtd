@@ -11,7 +11,7 @@ class BadInputException(ValueError):
     pass
 
 
-def frontal_function(m: int, n: int,liste, chemin: str) -> float:
+def total_list(m: int, n: int,liste, chemin: str) -> float:
     """
     Fonction principale pour traiter la ligne d'entrée.
     
@@ -77,7 +77,7 @@ def main(line: str):
             if not len(row) > 1: raise BadInputException()
 
     try:
-        result = frontal_function(m,n,liste_word,chemin)
+        result = total_list(m,n,liste_word,chemin)
         print(result)
     except BadInputException:
         print("BAD INPUT")
