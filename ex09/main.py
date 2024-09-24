@@ -9,7 +9,7 @@ class BadInputException(ValueError):
     pass
 
 
-def frontal_function() :
+def frontal_function(chaine:str, chemin:str) :
     """
     Rename and document this function accordingly.
     
@@ -23,7 +23,19 @@ def frontal_function() :
             
     """
     
-    return 
+    with open(chemin, 'r') as file:
+        content = file.read()
+
+    motif = chaine.replace('*','.*')
+
+    regex = re.compile(motif)
+
+    liste_chaine = content.split()
+
+    resultats = [mot for mot in liste_chaine if regex.search(mot)]
+
+    return " ".join(resultats)
+
 
 def main(line: str):
     
@@ -31,9 +43,25 @@ def main(line: str):
     
     ###
     
-    
+    parameter = line.split(" ")
+
+    chaine = parameter[0]
+    chemin = parameter[1]
+
+    if not re.match(r"[a-zA-Z\*]+", chaine): raise BadInputException
+    with open(chemin, 'r') as file:
+        content = file.read()
+        if not re.match(r"[a-zA-Z]*", content): raise BadInputException
+
+
+
     ### Frontal function call and exceptions management
-    
+    try:
+
+        result = frontal_function(chaine, chemin)
+        print(result)
+    except:
+        print("NOK")
     ###
 
 
